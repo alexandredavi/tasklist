@@ -1,0 +1,34 @@
+<label>{{titulo}}</label>
+<div *ngFor="let tarefa of tarefas">
+  <div class="card" *ngIf="tarefa.concluida === concluidas">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-1">
+          <div class="backlog-item-content-right">
+            <i class="fa fa-chevron-up clickable" aria-hidden="true" (click)="upPosicao(tarefa)"></i><br>
+            <p class="mb0">{{tarefa.posicao}}</p>
+            <i class="fa fa-chevron-down clickable" aria-hidden="true" (click)="downPosicao(tarefa)"></i><br>
+          </div>
+        </div>
+        <div class="col-md-8">
+          {{tarefa.titulo}}
+          <p>{{tarefa.descricao}}</p>
+        </div>
+        <div class="col-md-2 pull-right">
+          <i class="fa fa-pencil clickable pr-5" aria-hidden="true" (click)="editarTarefa(tarefa)"></i>
+          <i class="fa fa-times clickable" aria-hidden="true" (click)="excluirTarefa(tarefa.id)"></i>
+        </div>
+      </div>
+      <div class="row mt-10">
+        <div class="col-md-7">
+          <input type="checkbox" [(ngModel)]="tarefa.concluida" (ngModelChange)="alterarStatusTarefa(tarefa)"> Concluído
+        </div>
+      </div>
+      <div class="row mt-10">
+        <div class="col-md-12">
+          Data de criação: {{tarefa.dataCriacao | date:'dd/MM/yyyy'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

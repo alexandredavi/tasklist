@@ -28,4 +28,20 @@ export class TarefasService {
     return this.http.delete(this.endpoint + '/' + id);
   }
 
+  public marcarTarefaComoConcluida(id: number): Observable<any> {
+    return this.http.get(this.endpoint + '/concluida/' + id);
+  }
+
+  public marcarTarefaComoNaoConcluida(id: number): Observable<any> {
+    return this.http.get(this.endpoint + '/nao-concluida/' + id);
+  }
+
+  public atualizaPosicao(id: number, posicao: number): Observable<any> {
+    return this.http.get(this.endpoint + '/atualiza-posicao/' + id + '/posicao/' + posicao);
+  }
+
+  public ordenarTarfasPorPosicao(tarefas: TarefaDto[]): TarefaDto[] {
+    return tarefas.sort((tarefa1, tarefa2) => tarefa2.posicao - tarefa1.posicao);
+  }
+
 }

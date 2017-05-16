@@ -33,19 +33,24 @@ export class AppComponent implements OnInit {
         (data) => {
           this.tarefas = data;
           this.buscando = false;
+          this.tarefasService.ordenarTarfasPorPosicao(this.tarefas);
         },
         () => this.buscando = false
       );
   }
 
   public salvar(): void {
-    if (!this.tarefa) {
+    if (!this.validate()) {
+      return;
+    }
+    if (!this.tarefa.id) {
       this.tarefasService.inserir(this.tarefa)
         .map((res) => res.json())
         .subscribe(
           (data) => {
-            this.tarefa.id = data;
+            this.tarefa = data;
             this.tarefas.push({...this.tarefa});
+            this.tarefasService.ordenarTarfasPorPosicao(this.tarefas);
             this.tarefa = new TarefaDto();
           }
         );
@@ -56,18 +61,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public editarTarefa(dto: TarefaDto): void {
-    this.tarefa = dto;
+  protected validate(): boolean {
+    if (this.form.invalid) {
+      alert('Conteudo do formulario invalido!');
+      return false;
+    }
+    return true;
   }
 
-  public excluirTarefa(id: number): void {
-    this.tarefasService.remover(id)
-      .subscribe(
-        () => {
-          const tarefaRemovida = this.tarefas.find((tarefa) => tarefa.id === id);
-          const idx = this.tarefas.indexOf(tarefaRemovida);
-          this.tarefas.splice(idx, 1);
-        }
-      );
-  }
 }

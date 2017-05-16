@@ -6,7 +6,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-sm-12 form-group">
-                <label>Titulo da tarefa*</label>
+                <label>Título da tarefa*</label>
                 <input type="text" class="form-control" formControlName="titulo" [(ngModel)]="tarefa.titulo">
               </div>
             </div>
@@ -24,8 +24,7 @@
         </div>
       </form>
     </div>
-    <div class="col-md-8">
-      <label>Listagem de tarefas</label>
+    <div class="col-md-8" *ngIf="buscando || (tarefas.length === 0 && !buscando)">
       <div class="card" *ngIf="buscando">
         <div class="card-block">
           <div class="row">
@@ -44,27 +43,12 @@
           </div>
         </div>
       </div>
-      <div *ngIf="tarefas.length !== 0 && !buscando">
-        <div class="card" *ngFor="let tarefa of tarefas">
-          <div class="card-block">
-            <div class="row">
-              <div class="col-md-9">
-                {{tarefa.titulo}}
-                <p>{{tarefa.descricao}}</p>
-              </div>
-              <div class="col-md-2">
-                <i class="fa fa-pencil clickable pr-5" aria-hidden="true" (click)="editarTarefa(tarefa)"></i>
-                <i class="fa fa-times clickable" aria-hidden="true" (click)="excluirTarefa(tarefa.id)"></i>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <input type="checkbox" [(ngModel)]="tarefa.concluida"> Concluido
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="col-md-4" *ngIf="tarefas.length !== 0 && !buscando">
+      <lista-tarefas [titulo]="'Tarefas pendentes'" [tarefas]="tarefas" [concluidas]="false" (editar)="this.tarefa = $event"></lista-tarefas>
+    </div>
+    <div class="col-md-4" *ngIf="tarefas.length !== 0 && !buscando">
+      <lista-tarefas [titulo]="'Tarefas concluidas'" [tarefas]="tarefas" [concluidas]="true" (editar)="this.tarefa = $event"></lista-tarefas>
     </div>
   </div>
 </div>

@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {TarefasService} from './tarefas.service';
+import {ListaTarefasComponent} from 'app/components/lista-tarefas/lista-tarefas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListaTarefasComponent
   ],
   imports: [
     BrowserModule,

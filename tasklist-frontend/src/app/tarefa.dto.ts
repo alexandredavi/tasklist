@@ -3,6 +3,7 @@ export class TarefaDto {
   titulo: string;
   descricao: string;
   concluida: boolean = false;
+  posicao: number = 0;
   dataCriacao: string;
   dataUltimaEdicao: string;
   dataRemocao: string;

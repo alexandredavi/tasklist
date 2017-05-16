@@ -2,12 +2,24 @@ html, body {
     background-color: rgba(245, 245, 245, 0.75);
 }
 
+.mb0 {
+    margin-bottom: 0px;
+}
+
 .mb-30 {
     margin-bottom: 30px;
 }
 
 .pr-5 {
     padding-right: 5px !important;
+}
+
+.pl-3 {
+    padding-left: 3px !important;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
 }
 
 .clickable {
