@@ -92,7 +92,7 @@ public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializa
     @SuppressWarnings("unchecked")
     protected Class<D> getClassDto() {
         if (classDto == null) {
-            this.classDto = (Class<D>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[3];
+            this.classDto = (Class<D>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[2];
         }
         return classDto;
     }
@@ -100,7 +100,7 @@ public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializa
     @SuppressWarnings("unchecked")
     protected Class<DL> getClassDtoListagem() {
         if (classDtoListagem == null) {
-            this.classDtoListagem = (Class<DL>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[4];
+            this.classDtoListagem = (Class<DL>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[3];
         }
         return classDtoListagem;
     }

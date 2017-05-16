@@ -18,7 +18,7 @@ public class TarefaDto {
     private String descricao;
 
     @NotNull
-    private boolean concluido;
+    private boolean concluida;
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
@@ -60,12 +60,12 @@ public class TarefaDto {
         this.descricao = descricao;
     }
 
-    public boolean isConcluido() {
-        return concluido;
+    public boolean isConcluida() {
+        return concluida;
     }
 
-    public void setConcluido(boolean concluido) {
-        this.concluido = concluido;
+    public void setConcluida(boolean concluida) {
+        this.concluida = concluida;
     }
 
     public LocalDate getDataCriacao() {

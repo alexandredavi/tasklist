@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: rgba(245, 245, 245, 0.75);
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.pr-5 {
+    padding-right: 5px !important;
+}
+
+.clickable {
+    cursor: pointer !important;
+}

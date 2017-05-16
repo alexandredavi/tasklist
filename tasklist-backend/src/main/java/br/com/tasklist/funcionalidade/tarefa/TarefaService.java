@@ -5,6 +5,7 @@ import br.com.tasklist.core.service.CrudService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.time.LocalDate;
 
 @Stateless
 public class TarefaService extends CrudService<Tarefa, Long, TarefaDto, TarefaDto> {
@@ -20,10 +21,12 @@ public class TarefaService extends CrudService<Tarefa, Long, TarefaDto, TarefaDt
     public void marcarTarefaComoConcluida(Long idTarefa) {
         Tarefa tarefa = buscarPorId(idTarefa);
         tarefa.setConcluida(true);
+        tarefa.setDataConclusao(LocalDate.now());
     }
 
     public void marcarTarefaComoNaoConcluida(Long idTarefa) {
         Tarefa tarefa = buscarPorId(idTarefa);
         tarefa.setConcluida(false);
+        tarefa.setDataConclusao(null);
     }
 }

@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-@Path("/tarefa")
+@Path("/tarefas")
 public class TarefaEndpoint extends CrudEndpoint<Tarefa, Long, TarefaService, TarefaDto, TarefaDto> {
 
     @GET

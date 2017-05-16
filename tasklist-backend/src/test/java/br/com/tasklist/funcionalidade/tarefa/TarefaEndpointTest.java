@@ -20,14 +20,14 @@ public class TarefaEndpointTest extends TestePadrao {
     @Test
     @InSequence(1)
     public void inserirTarefa() {
-        Response response = post("/api/tarefa", "json/tarefa/nova-tarefa.json");
+        Response response = post("/api/tarefas", "json/tarefa/nova-tarefa.json");
         statusOk(response);
     }
 
     @Test
     @InSequence(2)
     public void buscarPorId() {
-        Response response = get("/api/tarefa/1");
+        Response response = get("/api/tarefas/1");
         statusOk(response);
     }
 
@@ -35,7 +35,7 @@ public class TarefaEndpointTest extends TestePadrao {
     @Test
     @InSequence(3)
     public void editarTarefa() {
-        Response responseGet = get("/api/tarefa/1");
+        Response responseGet = get("/api/tarefas/1");
         TarefaDto tarefa = responseGet.readEntity(TarefaDto.class);
         tarefa.setTitulo("Tarefa editada");
         Response responsePut = put("/api/tarefa", tarefa);
@@ -45,21 +45,21 @@ public class TarefaEndpointTest extends TestePadrao {
     @Test
     @InSequence(4)
     public void marcarTarefaComoConcluida() {
-        Response response = get("/api/tarefa/concluida/1");
+        Response response = get("/api/tarefas/concluida/1");
         statusOk(response);
     }
 
     @Test
     @InSequence(5)
     public void marcarTarefaComoNaoConcluida() {
-        Response response = get("/api/tarefa/nao-concluida/1");
+        Response response = get("/api/tarefas/nao-concluida/1");
         statusOk(response);
     }
 
     @Test
     @InSequence(6)
     public void removerTarefa() {
-        Response response = delete("/api/tarefa/1");
+        Response response = delete("/api/tarefas/1");
         statusOk(response);
     }
 }
