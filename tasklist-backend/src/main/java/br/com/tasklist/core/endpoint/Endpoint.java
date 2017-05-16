@@ -22,8 +22,4 @@ public abstract class Endpoint {
         return Response.status(Status.NOT_FOUND).build();
     }
 
-    public Response created(Object o) {
-        return Response.status(Status.CREATED).build();
-    }
-
 }

@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import java.time.LocalDate;
 
 @Stateless
-public class TarefaService extends CrudService<Tarefa, Long, TarefaDto, TarefaDto> {
+public class TarefaService extends CrudService<Tarefa, Long, TarefaDto> {
 
     @Inject
     private TarefaDao dao;
@@ -28,5 +28,10 @@ public class TarefaService extends CrudService<Tarefa, Long, TarefaDto, TarefaDt
         Tarefa tarefa = buscarPorId(idTarefa);
         tarefa.setConcluida(false);
         tarefa.setDataConclusao(null);
+    }
+
+    public void atualizaPosicao(Long id, Long posicao) {
+        Tarefa tarefa = buscarPorId(id);
+        tarefa.setPosicao(posicao);
     }
 }

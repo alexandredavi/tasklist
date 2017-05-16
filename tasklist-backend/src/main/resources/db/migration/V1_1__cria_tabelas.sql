@@ -4,6 +4,7 @@ CREATE TABLE tarefa
   fg_excluido BOOLEAN NOT NULL,
   fg_concluida BOOLEAN NOT NULL,
   nm_titulo CHARACTER VARYING(255) NOT NULL,
+  nu_posicao INT NOT NULL,
   ds_tarefa CHARACTER VARYING(255),
   dt_criacao DATE,
   dt_ultima_edicao DATE,

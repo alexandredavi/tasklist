@@ -19,6 +19,9 @@ public class Tarefa extends BaseEntity<Long> implements ExclusaoLogica {
     @Column(name = "fg_concluida")
     private boolean concluida;
 
+    @Column(name = "nu_posicao")
+    private Long posicao;
+
     @Column(name = "dt_criacao")
     private LocalDate dataCriacao;
 
@@ -90,6 +93,14 @@ public class Tarefa extends BaseEntity<Long> implements ExclusaoLogica {
         this.dataConclusao = dataConclusao;
     }
 
+    public Long getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(Long posicao) {
+        this.posicao = posicao;
+    }
+
     @Override
     public void setExcluido(boolean exclusao) {
         this.dataRemocao = LocalDate.now();
@@ -104,6 +115,7 @@ public class Tarefa extends BaseEntity<Long> implements ExclusaoLogica {
     @PrePersist
     public void prePersist() {
         this.dataCriacao = LocalDate.now();
+        this.posicao = 0L;
     }
 
     @PreUpdate

@@ -3,30 +3,21 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>br.com.tasklist</groupId>
     <artifactId>tasklist-backend</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
+
     <properties>
         <app.warname>ROOT</app.warname>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jasperreports.version>6.2.2</jasperreports.version>
         <resteasy.version>3.1.0.Final</resteasy.version>
         <slf4j.version>1.7.7</slf4j.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <wildfly.version>10.1.0.Final</wildfly.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>nexus-atlansian-3rd-party-repository</id>
-            <url>https://maven.atlassian.com/3rdparty/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -48,18 +39,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.2.7.Final</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>dom4j</groupId>
-                    <artifactId>dom4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
             <version>${resteasy.version}</version>
@@ -73,26 +52,21 @@
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.7.Final</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.2.7.Final</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>dom4j</groupId>
-                    <artifactId>dom4j</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.4.0.Final</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>20.0</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -119,11 +93,6 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.25.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.5</version>
         </dependency>
         <!-- dependency tests-->
         <dependency>
@@ -170,6 +139,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>

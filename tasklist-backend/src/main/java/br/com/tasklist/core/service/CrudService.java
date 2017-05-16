@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * Service com metodos genericos para CRUD.
  */
-public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializable, D, DL> {
+public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializable, D> {
 
     @Inject
     protected Validator validator;
@@ -24,25 +24,25 @@ public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializa
 
     private Class<E> classE;
     private Class<D> classDto;
-    private Class<DL> classDtoListagem;
 
-    public ID inserir(E entity) {
+    public E inserir(E entity) {
         getDao().inserir(entity);
-        return entity.getId();
+        return entity;
     }
 
-    public ID inserirDto(D dto) {
+    public D inserirDto(D dto) {
         E entity = toEntity(dto);
-        return inserir(entity);
+        return toDto(inserir(entity));
     }
 
-    public void atualizar(E entity) {
-        getDao().atualizar(entity);
+    public E atualizar(E entity) {
+        E entityMerged = getDao().atualizar(entity);
+        return entityMerged;
     }
 
-    public void atualizarDto(D dto) {
+    public D atualizarDto(D dto) {
         E entity = toEntity(dto);
-        atualizar(entity);
+        return toDto(atualizar(entity));
     }
 
     public void remover(ID id) {
@@ -61,8 +61,8 @@ public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializa
         return getDao().buscarTodos();
     }
 
-    public List<DL> buscarTodosDtos() {
-        return toDtoListagem(buscarTodos());
+    public List<D> buscarTodosDtos() {
+        return toDto(buscarTodos());
     }
 
     public E toEntity(D dto) {
@@ -73,9 +73,9 @@ public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializa
         return mapper.map(entidade, getClassDto());
     }
 
-    public List<DL> toDtoListagem(List<E> entidades) {
+    public List<D> toDto(List<E> entidades) {
         return entidades.stream()
-                .map(e -> mapper.map(e, getClassDtoListagem()))
+                .map(e -> mapper.map(e, getClassDto()))
                 .collect(Collectors.toList());
     }
 
@@ -95,14 +95,6 @@ public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializa
             this.classDto = (Class<D>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[2];
         }
         return classDto;
-    }
-
-    @SuppressWarnings("unchecked")
-    protected Class<DL> getClassDtoListagem() {
-        if (classDtoListagem == null) {
-            this.classDtoListagem = (Class<DL>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[3];
-        }
-        return classDtoListagem;
     }
 
 }

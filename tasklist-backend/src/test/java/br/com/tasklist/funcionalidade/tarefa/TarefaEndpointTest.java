@@ -38,7 +38,7 @@ public class TarefaEndpointTest extends TestePadrao {
         Response responseGet = get("/api/tarefas/1");
         TarefaDto tarefa = responseGet.readEntity(TarefaDto.class);
         tarefa.setTitulo("Tarefa editada");
-        Response responsePut = put("/api/tarefa", tarefa);
+        Response responsePut = put("/api/tarefas", tarefa);
         statusOk(responsePut);
     }
 

@@ -20,6 +20,8 @@ public class TarefaDto {
     @NotNull
     private boolean concluida;
 
+    private Long posicao;
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate dataCriacao;
@@ -78,6 +80,14 @@ public class TarefaDto {
 
     public LocalDate getDataUltimaEdicao() {
         return dataUltimaEdicao;
+    }
+
+    public Long getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(Long posicao) {
+        this.posicao = posicao;
     }
 
     public void setDataUltimaEdicao(LocalDate dataUltimaEdicao) {

@@ -8,7 +8,7 @@ import javax.ejb.*;
 import javax.sql.DataSource;
 
 /**
- * Configuração do Framework Flyway para migração da base de dados.
+ * Configuração do Framework Flyway para evolucao da base de dados.
  */
 
 @Singleton
@@ -17,7 +17,9 @@ import javax.sql.DataSource;
 @ConcurrencyManagement (ConcurrencyManagementType.CONTAINER)
 public class FlywayConfiguration {
 
-    @Resource(lookup = "java:jboss/datasources/taskListDS")
+    private static final String JNDI_LOOKUP = "java:jboss/datasources/taskListDS";
+
+    @Resource(lookup = JNDI_LOOKUP)
     private DataSource dataSource;
 
     @PostConstruct

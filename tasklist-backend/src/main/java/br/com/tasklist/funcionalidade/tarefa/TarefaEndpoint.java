@@ -8,7 +8,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 @Path("/tarefas")
-public class TarefaEndpoint extends CrudEndpoint<Tarefa, Long, TarefaService, TarefaDto, TarefaDto> {
+public class TarefaEndpoint extends CrudEndpoint<Tarefa, Long, TarefaService, TarefaDto> {
 
     @GET
     @Path("/concluida/{id}")
@@ -21,6 +21,13 @@ public class TarefaEndpoint extends CrudEndpoint<Tarefa, Long, TarefaService, Ta
     @Path("/nao-concluida/{id}")
     public Response marcarTarefaComoNaoConcluida(@PathParam("id") Long idTarefa) {
         service.get().marcarTarefaComoNaoConcluida(idTarefa);
+        return ok();
+    }
+
+    @GET
+    @Path("/atualiza-posicao/{id}/posicao/{posicao}")
+    public Response atualizaPosicao(@PathParam("id") Long id, @PathParam("posicao") Long posicao) {
+        service.get().atualizaPosicao(id, posicao);
         return ok();
     }
 }
