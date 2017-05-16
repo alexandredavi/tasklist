@@ -19,6 +19,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Configuração do Arquillian para testes de integração.
+ * Encapsulamento de requisições na api.
+ */
+
 public abstract class TestePadrao {
 
     protected Client client = ClientBuilder.newClient();

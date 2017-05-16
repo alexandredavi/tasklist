@@ -9,6 +9,10 @@ import org.junit.runner.RunWith;
 
 import javax.ws.rs.core.Response;
 
+/**
+ * Teste de integração para a funcionalidade de tarefas.
+ */
+
 @RunAsClient
 @RunWith(Arquillian.class)
 public class TarefaEndpointTest extends TestePadrao {

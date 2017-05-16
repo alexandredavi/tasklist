@@ -7,6 +7,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
+/**
+ * Producer para utilização do slf4 como logger.
+ */
+
 @ApplicationScoped
 public class LoggerProducer {
 

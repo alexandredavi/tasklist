@@ -11,6 +11,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.io.Serializable;
 
+/**
+ * Endpoint com metodos genericos para CRUD.
+ */
 public abstract class CrudEndpoint<E extends BaseEntity<ID>, ID extends Serializable, S extends CrudService<E, ID, D, DL>, D, DL> extends Endpoint {
 
     @Inject

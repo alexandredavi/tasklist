@@ -6,6 +6,9 @@ import br.com.tasklist.core.model.entity.ExclusaoLogica;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Dao com metodos genericos para CRUD tratando entidades com exclusao logica.
+ */
 public abstract class ExclusaoLogicaCrudDao<E extends BaseEntity<ID> & ExclusaoLogica, ID extends Serializable> extends CrudDao<E, ID> {
 
     @Override

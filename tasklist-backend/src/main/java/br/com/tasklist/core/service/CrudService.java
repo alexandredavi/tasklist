@@ -11,6 +11,9 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Service com metodos genericos para CRUD.
+ */
 public abstract class CrudService<E extends BaseEntity<ID>, ID extends Serializable, D, DL> {
 
     @Inject

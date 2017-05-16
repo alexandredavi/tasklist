@@ -7,6 +7,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 
+/**
+ * Producer para o model mapper, utilizado para fazer o mapeamento entre entidades e DTO's.
+ */
+
 @ApplicationScoped
 public class ModelMapperProducer {
 

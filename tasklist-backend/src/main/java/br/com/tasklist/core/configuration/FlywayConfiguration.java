@@ -7,6 +7,10 @@ import javax.annotation.Resource;
 import javax.ejb.*;
 import javax.sql.DataSource;
 
+/**
+ * Configuração do Framework Flyway para migração da base de dados.
+ */
+
 @Singleton
 @Startup
 @TransactionManagement(TransactionManagementType.BEAN)

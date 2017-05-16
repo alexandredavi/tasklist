@@ -13,6 +13,9 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+/**
+ * Dao com metodos genericos para CRUD.
+ */
 public abstract class CrudDao<E extends BaseEntity<ID>, ID extends Serializable> {
 
     @Produces
