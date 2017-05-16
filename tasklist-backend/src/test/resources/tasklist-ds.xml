@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources>
+<datasource jndi-name="java:jboss/datasources/taskListDS" pool-name="taskListDS">
+    <connection-url>jdbc:mysql://localhost/task-list?useTimezone=true&amp;serverTimezone=UTC</connection-url>
+    <driver>test.war_com.mysql.cj.jdbc.Driver_6_0</driver>
+    <security>
+        <user-name>root</user-name>
+        <password>root</password>
+    </security>
+</datasource>
+</datasources>
