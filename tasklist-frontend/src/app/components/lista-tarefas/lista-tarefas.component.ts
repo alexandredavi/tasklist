@@ -1,6 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {TarefaDto} from '../../tarefa.dto';
-import {TarefasService} from '../../tarefas.service';
+import {TarefaDto} from '../../funcionalidade/tarefa/tarefa.dto';
+import {TarefasService} from '../../funcionalidade/tarefa/tarefas.service';
+
+/**
+ * Component para listagem das tarefas e funcoes de excluir, editar, marcar como concluida e alterar prioridade
+ */
+
 @Component({
   selector: 'lista-tarefas',
   templateUrl: 'lista-tarefas.component.html'

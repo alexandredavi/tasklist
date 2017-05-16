@@ -5,10 +5,13 @@ import {TarefasService} from './tarefas.service';
 
 import 'rxjs/add/operator/map';
 
+/**
+ * Component principal da aplicação, utilizado para cadastra e listar as tarefas
+ */
+
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './tarefas.component.html'
 })
 export class AppComponent implements OnInit {
 

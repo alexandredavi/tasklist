@@ -3,6 +3,10 @@ import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {TarefaDto} from './tarefa.dto';
 
+/**
+ * Service para requisições http e regras relacionado as tarefas
+ */
+
 @Injectable()
 export class TarefasService {
 
