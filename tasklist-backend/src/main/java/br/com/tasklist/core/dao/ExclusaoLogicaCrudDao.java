@@ -4,6 +4,7 @@ import br.com.tasklist.core.model.entity.BaseEntity;
 import br.com.tasklist.core.model.entity.ExclusaoLogica;
 
 import java.io.Serializable;
+import java.util.List;
 
 public abstract class ExclusaoLogicaCrudDao<E extends BaseEntity<ID> & ExclusaoLogica, ID extends Serializable> extends CrudDao<E, ID> {
 
@@ -15,4 +16,11 @@ public abstract class ExclusaoLogicaCrudDao<E extends BaseEntity<ID> & ExclusaoL
         }
     }
 
+    @Override
+    public List<E> buscarTodos() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT e FROM " + getClassE().getName() + " e ");
+        sb.append("WHERE e.excluido = false ");
+        return em.createQuery(sb.toString()).getResultList();
+    }
 }

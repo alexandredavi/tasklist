@@ -6,7 +6,6 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <!--Criar um web.xml para cada ambiente, pois cada ambiente terá a sua origin-->
     <env-entry>
         <env-entry-name>accessControlAllowOriginDefault</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>

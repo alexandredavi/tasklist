@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.io.Serializable;
@@ -34,12 +35,12 @@ public abstract class CrudEndpoint<E extends BaseEntity<ID>, ID extends Serializ
     }
 
     @POST
-    public Response inserir(D dto) {
+    public Response inserir(@Valid D dto) {
         return ok(service.get().inserirDto(dto));
     }
 
     @PUT
-    public Response atualizar(D dto) {
+    public Response atualizar(@Valid D dto) {
         service.get().atualizarDto(dto);
         return ok();
     }

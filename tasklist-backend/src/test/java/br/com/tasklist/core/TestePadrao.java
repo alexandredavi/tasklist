@@ -1,5 +1,5 @@
 
-package br.com.simplesnegocio.core;
+package br.com.tasklist.core;
 
 import com.google.common.base.Charsets;
 import org.apache.commons.io.FileUtils;
@@ -64,11 +64,32 @@ public abstract class TestePadrao {
                 .post(readEntityFromJson(json));
     }
 
+    protected Response put(String path, String json) {
+        return client.target(url.toString())
+                .path(path)
+                .request()
+                .put(readEntityFromJson(json));
+    }
+
+    protected Response put(String path, Object o) {
+        return client.target(url.toString())
+                .path(path)
+                .request()
+                .put(Entity.json(o));
+    }
+
     protected Response get(String path) {
         return client.target(url.toString())
                 .path(path)
                 .request()
                 .get();
+    }
+
+    protected Response delete(String path) {
+        return client.target(url.toString())
+                .path(path)
+                .request()
+                .delete();
     }
 
     protected void statusOk(Response response) {
